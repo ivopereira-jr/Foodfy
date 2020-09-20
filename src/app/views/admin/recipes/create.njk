@@ -1,0 +1,68 @@
+{% extends "admin-layout.njk" %}
+   
+{% block title %}
+   <title>Nova Receita</title>
+{% endblock title %} 
+
+{% block head %}
+   <link rel="stylesheet" href="/css/admin-receitas.css">
+{% endblock head %}
+
+{% block content %}
+   <section class="create-recipe">
+      <div class="container">
+         <div class="forms-actions">
+            <form method="POST" action="/admin/recipes">
+               <div class="title-content">
+                  <h2>Criar receita</h2>
+                  <button type="submit">Salvar receita</button>
+               </div>
+               <div class="create-item">
+                  <h2>Imagem da receita</h2>
+                  <input type="text" name="image" placeholder="ex. https://...">
+               </div><!--create-item-->
+               <div class="create-item">
+                  <h2>Chef</h2>
+                  <select name="chef_id">
+                     {% for chef in chefOptions %}
+                        <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected {% endif %}>
+                           {{chef.name}}
+                        </option>
+                     {% endfor %}
+                  </select>
+               </div><!--create-item-->
+               <div class="create-item">
+                  <h2>Nome da receita</h2>
+                  <input type="text" name="title" placeholder="ex. Bife acebolado">
+               </div><!--create-item-->
+               <div class="create-item">
+                  <h2>Ingredientes</h2>
+                  <div class="ingredients">
+                     <div class="ingredient">
+                        <input type="text" name="ingredients[]" value="" placeholder="ex. 100g de queijo...">
+                     </div><!--ingredient-->
+                  </div><!--ingredients-->
+                  <a class="add-ingredient">Adicionar novo ingrediente</a>
+               </div><!--create-item-->
+               <div class="create-item">
+                  <h2>Modo de preparo</h2>
+                  <div class="steps">
+                     <div class="step">
+                        <input type="text" name="steps[]" placeholder="ex. Misture todos os ingredientes">
+                     </div><!--step-->
+                  </div><!--steps-->
+                  <a class="add-step">Adicionar novo passo</a>
+               </div><!--create-item-->
+               <div class="create-item">
+                  <h2>Informações adicionais</h2>
+                  <textarea name="information" placeholder="ex. Preaqueça o forno a 180°"></textarea>
+               </div><!--create-item-->
+            </form>
+         </div>
+      </div><!--container-->
+   </section>
+{% endblock content %}
+
+{% block script %}
+   <script src="/js/create-recipe.js"></script>
+{% endblock script %}

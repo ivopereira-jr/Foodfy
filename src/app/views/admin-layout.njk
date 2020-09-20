@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {% block title %}
+         <title>Foodfy</title>
+      {% endblock title %}
+      <link rel="icon" type="image/png" sizes="36x36" href="/images/icon-36x36.png">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+      <link rel="stylesheet" href="/css/style.css">
+      {% block head %}
+      {% endblock head %}
+   </head>
+   <body>
+      <header>
+         <div class="container">
+            <div class="logo">
+               <a href="/admin/recipes">
+                  <img class="logo-black" src="/assets/logo.png" alt="Logomarca">
+                  <img class="logo-white" src="/assets/logo-white.png" alt="Logomarca">
+               </a>
+            </div><!--logo-->
+            <div class="links">           
+               <a href="/admin/recipes">Receitas</a>
+               <a href="/admin/chefs">Chefs</a>
+            </div><!--links-->
+            {% block header %}
+            {% endblock header %}
+         </div><!--container-->
+      </header>
+
+      {% block content %}
+      {% endblock content %}
+
+      <button class="topbtn"><i class="fas fa-arrow-up"></i></button>
+
+      <footer>
+         <p>Todos direitos reservados, receitas Foodfy.</p>
+      </footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="/js/script.js"></script>
+      {% block script %}
+      {% endblock script %}
+   </body>
+</html>

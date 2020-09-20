@@ -1,0 +1,17 @@
+{% extends "admin-layout.njk" %}
+   
+{% block head %}
+   <link rel="stylesheet" href="/css/404.css">
+{% endblock head %}
+  
+{% block content %}
+   <section class="chef-banner-404">
+      <div class="container">
+         <div class="chef-banner-info-404">
+            <span><i class="fas fa-exclamation-triangle"></i></span>
+            <h2>Ops! chefs que possuem receitas não podem ser deletados</h2>
+            <a href="/admin/chefs/{{chef.id}}/edit">Voltar</a>
+         </div><!--banner-info-->
+      </div><!--container-->
+   </section><!--banner-->
+{% endblock content %}

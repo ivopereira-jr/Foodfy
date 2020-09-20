@@ -1,0 +1,95 @@
+/*---chefs---*/
+section.chefs,
+section.chef {
+  margin-top: 30px;
+}
+
+section.chef-receitas {
+  margin: 50px 0;
+}
+
+.title-chefs h2,
+.title-content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-title);
+}
+
+.chef-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.chef-card {
+  display: flex;
+  align-items: center;
+}
+
+.chef-image img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.chef-info {
+  padding-left: 20px;
+}
+
+.chef-info h2 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: var(--color-title);
+}
+
+.chef-info p {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--color-sub-title);
+}
+
+/*---chef---*/
+
+.show-chef-card {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.show-chef-img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}/*o object-fit cover a e para fazer a img preencher todo o espaço em vez de ficar esticando*/
+
+.show-chef-info h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--color-title);
+  margin-top: 30px;
+}
+
+.show-chef-info p {
+  font-size: 20px;
+  font-weight: 400px;
+  text-align: center;
+  color: var(--color-descricion);
+}
+
+.chef-info a {
+  display: block;
+  margin-top: 5px;
+  color: #6558C3;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+footer {
+  position: absolute;
+}

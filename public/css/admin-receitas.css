@@ -1,0 +1,188 @@
+/*--create--*/
+
+section.create-recipe,
+section.create-chef {
+   margin: 30px 0;
+}
+
+section.create-chef {
+   min-height: 90vh;
+}
+
+.title-content {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-top: 20px;
+}
+
+.title-content h2,
+.title-edit h2 {
+   font-size: 24px;
+   font-weight: bold;
+}
+
+.title-content a,
+form button {
+   padding: 7px 15px;
+   border-radius: 4px;
+   background: #6558C3;
+   color: white;
+   text-align: center;
+   font-size: 16px;
+   font-weight: bold;
+}
+
+form button {
+   border: none;
+   outline: none;
+   cursor: pointer;  
+}
+
+.create-item {
+   margin: 30px 0;
+}
+
+.create-item input,
+.create-item select, 
+.create-item textarea {
+   width: 100%;
+   border-radius: 4px;
+   background: #FFFFFF;
+   border: 1px solid #DDDDDD;
+   padding: 13px;
+   padding-right: 40px;
+   outline: none;
+   font-size: 18px;
+}
+
+.create-item input::placeholder {
+   font-size: 15px;
+   font-weight: normal;
+}
+
+.create-item textarea {
+   min-height: 240px;
+   resize: none;
+}
+
+.create-item input:focus,
+.create-item textarea:focus {
+   border: 1px solid #04a3ff;
+   transition: 400ms;
+}
+
+.create-item h2 {
+   font-size: 16px;
+   font-weight: bold;
+   color: var(--color-title);
+   margin-bottom: 10px;
+}
+
+.create-item a {
+   color: #6558C3;
+   font-size: 16px;
+   font-weight: bold;
+   margin: 15px 0;
+   display: block;
+   cursor: pointer;
+}
+
+/*--edit--*/
+.title-edit {
+   display: inline-block;
+}
+
+.forms-actions {
+   position: relative;
+   margin-top: 30px;
+}
+
+form button {
+   position: absolute;
+   top: 0;
+   right: 0;   
+}
+
+form button.delete {
+   right: 140px;
+}
+
+form button.chef-delete {
+   right: 120px;
+}
+
+form#form-delete .delete,
+form#form-delete .chef-delete {
+   background: #DC4747;
+}
+
+form#form-delete .delete:hover,
+form#form-delete .chef-delete:hover  {
+   background: #b33b3b;
+   transition: 400ms;
+}
+
+form button.save:hover {
+   background: #463aa0;
+   transition: 400ms;
+}
+
+/*--receitas--*/
+
+section.receitas {
+   margin: 30px 0;
+ }
+ 
+ .title-receitas h2 {
+   color: var(--color-title);
+   font-size: 24px;
+   font-weight: bold;
+ }
+ 
+ .receitas-cards {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 20px;
+   margin-top: 30px;
+ }
+ 
+ .admin-card {
+   display: flex;
+ }
+ 
+ .admin-card .card-img img {
+   width: 170px;
+   height: 80px;
+   border-radius: 10px;
+   object-fit: cover;
+ }
+ 
+ .card-info {
+    padding-left: 20px;
+ }
+
+ .card-info h2 {
+   font-size: 18px;
+   font-weight: 400;
+   line-height: 28px;
+   color: var(--color-title);
+ }
+ 
+ .card-info p {
+   font-size: 14px;
+   font-weight: 400;
+   color: var(--color-descricion);
+ }
+ 
+ .card-info a {
+   display: block;
+   margin-top: 15px;
+   color: #6558C3;
+   font-size: 14px;
+   font-weight: bold;
+ }
+ 
+ footer {
+   display: none;
+ }

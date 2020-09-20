@@ -1,0 +1,48 @@
+.banner-info-404,
+.chef-banner-info-404 {
+   width: 100%;
+   border-radius: 30px;
+   padding: 30px 0;
+   text-align: center;
+   background: #eeeeee;
+}
+
+.banner-info-404 img {
+   width: 100%;
+   padding: 20px 0;
+}
+
+.banner-info-404 a {
+   font-size: 24px;
+   cursor: pointer;
+   color: var(--color-first-background);
+}
+
+.chef-banner-info-404 {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   padding: 50px 0;
+   margin: 50px 0;
+}
+
+.chef-banner-info-404 span i {
+   color: red;
+   font-size: 150px;
+   margin-bottom: 20px;
+}
+
+.chef-banner-info-404 h2 {
+   margin-bottom: 10px;
+}
+
+.chef-banner-info-404 a {
+   font-weight: bold;
+   color: var(--color-title);
+   border-bottom: 1px solid var(--color-title);
+}
+
+footer {
+   position: absolute;
+}

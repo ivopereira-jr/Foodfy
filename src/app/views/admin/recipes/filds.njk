@@ -1,0 +1,46 @@
+<button class="save" type="submit">Salvar receita</button>
+
+<div class="create-item">
+   <h2>Imagem da receita</h2>
+   <input type="text" name="image" value="{{recipe.image}}" placeholder="ex. https://...">
+</div><!--create-item-->
+<div class="create-item">
+   <h2>Chef</h2>
+   <select name="chef_id">
+      {% for chef in chefOptions %}
+         <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected {% endif %}>
+            {{chef.name}}
+         </option>
+      {% endfor %}
+   </select>
+</div><!--create-item-->
+<div class="create-item">
+   <h2>Nome da receita</h2>
+   <input type="text" name="title" value="{{recipe.title}}" placeholder="ex. Bife acebolado">
+</div><!--create-item-->
+<div class="create-item">
+   <h2>Ingredientes</h2>
+   <div class="ingredients">
+      {% for ingredient in recipe.ingredients %}
+         <div class="ingredient">
+            <input type="text" name="ingredients[]" value="{{ingredient}}" placeholder="ex. 100g de queijo...">
+         </div><!--ingredient-->
+      {% endfor %}
+   </div><!--ingredients-->
+   <a class="add-ingredient">Adicionar novo ingrediente</a>
+</div><!--create-item-->
+<div class="create-item">
+   <h2>Modo de preparo</h2>
+   <div class="steps">
+      {% for step in recipe.steps %}
+         <div class="step">
+            <input type="text" name="steps[]" value="{{step}}" placeholder="ex. Misture todos os ingredientes">
+         </div><!--step-->
+      {% endfor %}
+   </div><!--steps-->
+   <a class="add-step">Adicionar novo passo</a>
+</div><!--create-item-->
+<div class="create-item">
+   <h2>Informações adicionais</h2>
+   <textarea name="information" placeholder="ex. Preaqueça o forno a 180°">{{recipe.information}}</textarea>
+</div><!--create-item-->

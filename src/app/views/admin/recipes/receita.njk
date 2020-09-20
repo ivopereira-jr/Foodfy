@@ -1,0 +1,52 @@
+{% extends "admin-layout.njk" %}
+   
+{% block title %}
+   <title>Receita | {{recipe.title}}</title>
+{% endblock title %} 
+
+{% block head %}
+   <link rel="stylesheet" href="/css/receita.css">
+{% endblock head %}
+
+{% block content %}
+   <section class="receita">
+      <div class="container">
+         <div class="title-content">
+            <h2>Receita: {{recipe.title}}</h2>
+            <a href="/admin/recipes/{{recipe.id}}/edit">Editar receita</a>
+         </div>
+         <div class="receita-card">
+            <div class="receita-img">  
+               <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
+            </div><!--card-img-->
+            <div class="receita-info">
+               <h2>{{recipe.title}}</h2>
+               <p>por {{recipe.chef_name}}</p>
+            </div><!--card-info-->
+         </div><!--receita-card-->
+         <div class="receita-descricao">
+            <div class="receita-wraper">               
+               <h2>Ingredientes <a class="open-close">Esconder</a> </h2>      
+               <ul>
+                  {% for ingredient in recipe.ingredients %}
+                     <li>{{ ingredient }}</li>
+                  {% endfor %}
+               </ul> 
+            </div><!--receita-wrape-->
+            <div class="receita-wraper">
+               <h2>Modo de preparo <a class="open-close">Esconder</a></h2>
+               <ul>
+                  {% for step in recipe.steps %}
+                     <li>{{ step }}</li>
+                  {% endfor %}
+               </ul> 
+            </div><!--receita-wraper-->
+            <div class="receita-wraper">
+               <h2>Informações adicionais <a class="open-close">Esconder</a></h2>
+               <p>{{recipe.information}}</p>
+            </div><!--receita-wraper-->
+
+         </div><!--receita-descricao-->
+      </div><!--container-->
+   </section><!--receita-->
+{% endblock content %}

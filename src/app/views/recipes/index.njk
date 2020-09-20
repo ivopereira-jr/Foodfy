@@ -1,0 +1,51 @@
+{% extends "layout.njk" %}
+   
+{% block head %}
+   <link rel="stylesheet" href="/css/home.css">
+{% endblock head %}
+  
+{% block header %}
+<form action="/receitas/resultado" method="GET">
+   <input type="text" name="filter" value="{{filter}}" placeholder="Buscar uma receita">
+   <button type="submit">Buscar</button>
+</form>
+{% endblock header %} 
+
+{% block content %}
+   <section class="banner" data-aos="fade-up"
+     data-aos-duration="3000">
+      <div class="container">
+         <div class="banner-info">
+            <h2>As melhores receitas</h2>
+            <p>Aprenda a construir os melhores pratos
+            com receitas criadas por profissionais
+            do mundo inteiro.</p>
+         </div><!--banner-info-->
+         <div class="banner-img">
+            <img src="./assets/chef.png" alt="img-chef">
+         </div><!--banner-img-->
+      </div><!--container-->
+   </section><!--banner-->
+
+   <section class="receitas-acessadas">
+      <div class="container">
+         <div class="title-acessadas">
+            <h2>Mais acessadas</h2>
+         </div><!--title-->
+
+         <div class="cards-receitas">
+            {% for recipe in recipes %}
+               <div class="card" id="{{recipe.id}}">
+                  <div class="card-img">
+                     <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
+                  </div><!--card-img-->
+                  <div class="card-info">
+                     <h2>{{recipe.title}}</h2>
+                     <p>por {{recipe.chef_name}}</p>
+                  </div><!--card-info-->
+               </div><!--card-->
+            {% endfor %}
+         </div><!--cards-receitas-->
+      </div><!--container-->
+   </section>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "admin-layout.njk" %}
+   
+{% block head %}
+   <link rel="stylesheet" href="/css/admin-receitas.css">
+{% endblock head %}
+  
+{% block content %}
+   <section class="receitas">
+      <div class="container">
+         <div class="title-receitas title-destaque">
+            <h2>Gerenciar receitas</h2>
+            <a class="button" href="/admin/recipes/create">Nova receita</a>
+         </div><!--title-->
+
+         <div class="receitas-cards">
+            {% for recipe in recipes %}
+               <div class="admin-card"">
+                  <div class="card-img">
+                     <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
+                  </div><!--card-img-->
+                  <div class="card-info">
+                     <h2>{{recipe.title}}</h2>
+                     <p>por {{recipe.chef_name}}</p>
+                     <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+                  </div><!--card-info-->
+               </div><!--card-->
+            {% endfor %}     
+         </div><!--receitas-->
+      </div><!--container-->
+   </section>
+{% endblock content %}
