@@ -55,7 +55,7 @@ $ npm install
 ------------------
 [*Entre em contato comigo*](https://www.linkedin.com/in/ivo-pereira-3997911a8)
 
-Obrigado por chegar até aqui!
+Obrigado por chegar até aqui! 💜
 
 
 
