@@ -32,7 +32,7 @@ Admin foodfy
 - Html
 - Javascript
 - Node.js
-- Postbird
+- PostgreSql
 
 </br>
 
