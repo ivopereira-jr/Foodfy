@@ -4,9 +4,9 @@
    
 ## ℹ Sobre
 
-Este projeto faz parte dos desafios do bootcamp LaunchBase realizado pela Rocketseat, o Foodfy é um site de receitas.
+Este projeto faz parte dos desafios do bootcamp LaunchBase realizado pela Rocketseat, o Foodfy é um site de receitas e chefs.
 
-foi adicionada uma área administrativa para o Foodfy e tambem foi alterado o arquivo que estava servindo as informações das receitas que era um data.js agora e um data.json e tanto a parte administrativa quanto as outras rotas fazem o uso do mesmo arquivo eu coloquei algumas poucas linhas de jquery para o efeito de subir para o topo da pagina e deixar o header fixo quando mover a scrollbar para baixo
+foi adicionada uma área administrativa para gerenciar as receitas e os chefs podendo adicionar editar ou deletar tanto as receitas quanto os chefs 
 
     
 </br>
@@ -36,16 +36,20 @@ Admin foodfy
 
 </br>
 
-## 💻 
+## 💻 Como utilizar
 
 ```bash
 
 # clonar o repositório
 $ git clone https://github.com/ivopereira-jr/Foodfy.git
 
-#instalar as dependências
+# instalar as dependências
 $ yarn install
 $ npm install 
+
+# para iniciar
+$ yarn start
+$ npm start 
 
 ```
 ---
