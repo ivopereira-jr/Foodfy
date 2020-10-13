@@ -16,9 +16,25 @@
             <a href="/admin/recipes/{{recipe.id}}/edit">Editar receita</a>
          </div>
          <div class="receita-card">
-            <div class="receita-img">  
-               <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
-            </div><!--card-img-->
+            <div class="receita-files">
+               <div class="receita-img">  
+                  {% if not files[0] %}
+                   <img src="http://placehold.it/500x500" alt="Sem foto">
+                  {% else %}
+                  <img src="{{files[0].src}}" alt="imagem de {{files[0].name}}">
+                  {% endif %}
+               </div><!--card-img-->
+               <div class="gallery-preview">
+                  {% for image in files %}
+                     <img src="{{image.src}}" alt="{{image.name}}" 
+                     {% if loop.index0 == 0 %}
+                        class="active"
+                     {% endif %}
+                     onclick="imageGallery.setImage(event)"
+                     >
+                  {% endfor %}
+               </div>
+            </div>
             <div class="receita-info">
                <h2>{{recipe.title}}</h2>
                <p>por {{recipe.chef_name}}</p>
@@ -50,3 +66,7 @@
       </div><!--container-->
    </section><!--receita-->
 {% endblock content %}
+
+{% block script %}
+   <script src="/js/photos-upload.js"></script>
+{% endblock script %}

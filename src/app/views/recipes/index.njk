@@ -2,6 +2,7 @@
    
 {% block head %}
    <link rel="stylesheet" href="/css/home.css">
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 {% endblock head %}
   
 {% block header %}
@@ -12,16 +13,19 @@
 {% endblock header %} 
 
 {% block content %}
-   <section class="banner" data-aos="fade-up"
-     data-aos-duration="3000">
+   <section class="banner">
       <div class="container">
-         <div class="banner-info">
+         <div class="banner-info" data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
             <h2>As melhores receitas</h2>
             <p>Aprenda a construir os melhores pratos
             com receitas criadas por profissionais
             do mundo inteiro.</p>
          </div><!--banner-info-->
-         <div class="banner-img">
+         <div class="banner-img" data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="600">
             <img src="./assets/chef.png" alt="img-chef">
          </div><!--banner-img-->
       </div><!--container-->
@@ -37,7 +41,7 @@
             {% for recipe in recipes %}
                <div class="card" id="{{recipe.id}}">
                   <div class="card-img">
-                     <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
+                     <img src="{{recipe.img}}" alt="imagem de {{recipe.title}}">
                   </div><!--card-img-->
                   <div class="card-info">
                      <h2>{{recipe.title}}</h2>
@@ -49,3 +53,10 @@
       </div><!--container-->
    </section>
 {% endblock content %}
+
+{% block script %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+{% endblock script %}

@@ -12,12 +12,29 @@
    <section class="create-chef">
       <div class="container">
          <div class="forms-actions">
-            <div class="title-edit">
-               <h2>Editar chef</h2>
-            </div>
-            <form class="form-save" method="POST" action="/admin/chefs?_method=PUT">
+            <form class="form-save" method="POST" action="/admin/chefs?_method=PUT" enctype="multipart/form-data">
+               <div class="title-edit">
+                  <h2>Editar chef</h2>
+                  <button class="save" type="submit">Salvar chef</button>
+               </div>
               
-               {% include 'admin/chefs/filds.njk' %}
+               <div class="create-item">
+                  <h2>Nome</h2>
+                  <input type="text" name="name" value="{{chef.name}}" placeholder="Jorge rabelo">
+               </div><!--create-item-->
+               <div class="create-item">
+                  <h2>Avatar</h2>
+                     <input type="text" id="chef-img" value="{{chefImg}}" disabled>
+                  <div class="avatar-upload">
+                     <div class="avatar-wrapper">
+                        <input type="file" name="photo" id="photos-input" multiple accept="image/*" onchange="chefUpload.fileUploadInput(event)">
+                        <p>Enviar Avatar</p>
+                     </div>
+                     <div class="avatar-single">
+                        <span class="material-icons">done</span>
+                     </div>
+                  </div>
+               </div><!--create-item-->
                            
                <input type="hidden" name="id" value="{{chef.id}}">    
             </form>             
@@ -32,3 +49,6 @@
    </section>
 {% endblock content %}
 
+{% block script %}
+   <script src="/js/photos-upload.js"></script>
+{% endblock script %}

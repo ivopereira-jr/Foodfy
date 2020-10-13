@@ -12,10 +12,11 @@
    <section class="create-recipe">
       <div class="container">      
          <div class="forms-actions">
-            <div class="title-edit">
-               <h2>Editar receita</h2>
-            </div>
-            <form class="form-save" method="POST" action="/admin/recipes?_method=PUT">
+            <form class="form-save" method="POST" action="/admin/recipes?_method=PUT" enctype="multipart/form-data">
+               <div class="title-content">
+                  <h2>Editar receita</h2>
+                  <button type="submit">Salvar receita</button>
+               </div>
 
                {% include 'admin/recipes/filds.njk' %}
                            
@@ -31,5 +32,9 @@
       </div><!--container-->
    </section>
 {% endblock content %}
+
+{% block script %}
+   <script src="/js/photos-upload.js"></script>
+{% endblock script %}
 
 

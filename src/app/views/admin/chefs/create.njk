@@ -12,22 +12,19 @@
    <section class="create-chef">
       <div class="container">
          <div class="forms-actions">
-            <form method="POST" action="/admin/chefs">
+            <form method="POST" action="/admin/chefs" enctype="multipart/form-data">
                <div class="title-content">
                   <h2>Criando chef</h2>
-                  <button type="submit">Salvar chef</button>
+                  <button class="save" type="submit">Salvar chef</button>
                </div>
-               <div class="create-item">
-                  <h2>Nome</h2>
-                  <input type="text" name="name" placeholder="Jorge rabelo">
-               </div><!--create-item-->
-               <div class="create-item">
-                  <h2>Avatar</h2>
-                  <input type="text" name="avatar_url" placeholder="https://...">
-               </div><!--create-item-->    
+
+               {% include 'admin/chefs/filds.njk' %}               
             </form>
          </div>
       </div><!--container-->
    </section>
 {% endblock content %}
 
+{% block script %}
+   <script src="/js/photos-upload.js"></script>
+{% endblock script %}
