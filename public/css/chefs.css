@@ -66,7 +66,7 @@ section.chef-receitas {
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
-}/*o object-fit cover a e para fazer a img preencher todo o espaço em vez de ficar esticando*/
+} /*o object-fit cover a e para fazer a img preencher todo o espaço em vez de ficar esticando*/
 
 .show-chef-info h2 {
   font-size: 36px;
@@ -85,11 +85,7 @@ section.chef-receitas {
 .chef-info a {
   display: block;
   margin-top: 5px;
-  color: #6558C3;
+  color: #6558c3;
   font-size: 14px;
   font-weight: bold;
-}
-
-footer {
-  position: absolute;
 }
