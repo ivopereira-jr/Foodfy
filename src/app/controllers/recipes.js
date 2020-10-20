@@ -146,7 +146,7 @@ module.exports = {
       offset,
     }
 
-    let results = await Recipe.paginate(params)
+    let results = await Recipe.resultsPaginate(params)
     let recipes = results.rows
 
     let mathTotal =

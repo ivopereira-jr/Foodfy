@@ -42,9 +42,10 @@ module.exports = {
     try {
       return db.query(
         `
-        SELECT *
-      FROM recipes
-      WHERE recipes.chef_id = $1`,
+      SELECT * FROM recipes
+      WHERE recipes.chef_id = $1
+      ORDER BY recipes.created_at DESC
+      `,
         [id]
       )
     } catch (err) {
