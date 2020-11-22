@@ -76,7 +76,8 @@ module.exports = {
     }
   },
   createFile(data) {
-    const query = `
+    try {
+      const query = `
       INSERT INTO files (
         name,
         path
@@ -84,8 +85,11 @@ module.exports = {
       RETURNING id
     `
 
-    const values = [data.filename, data.path]
+      const values = [data.filename, data.path]
 
-    return db.query(query, values)
+      return db.query(query, values)
+    } catch (err) {
+      console.log(err)
+    }
   },
 }

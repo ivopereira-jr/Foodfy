@@ -5,11 +5,11 @@
 {% endblock title %}   
 
 {% block head %}
-   <link rel="stylesheet" href="css/receitas.css">
+   <link rel="stylesheet" href="/styles/receitas.css">
 {% endblock head %}
          
 {% block header %}
-<form action="/receitas/resultado" method="GET">
+<form class="search" action="/receitas/resultado" method="GET">
    <input type="text" name="filter" value="{{filter}}" placeholder="Buscar uma receita">
    <button type="submit">Buscar</button>
 </form>

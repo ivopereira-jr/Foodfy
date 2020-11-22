@@ -5,7 +5,7 @@
 {% endblock title %}   
 
 {% block head %}
-  <link rel="stylesheet" href="css/chefs.css">
+  <link rel="stylesheet" href="/styles/chefs.css">
 {% endblock head %}
          
 {% block content %}
@@ -19,7 +19,7 @@
               </div>
               <div class="chef-info">
                 <h2>{{chef.name}}</h2>
-                <p>{{chef.total_recipes}} receitas</p>
+                <a href="/chefs/{{chef.id}}">Visualizar</a>
               </div><!--info-->
             </div><!--chef-card-->
           {% endfor %}

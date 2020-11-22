@@ -1,0 +1,31 @@
+<div class="login-item">
+   <h2>Email</h2>
+   <input   
+      type="email" 
+      name="email" 
+      value="{{user.email}}"
+      placeholder="Digite o email" 
+      required
+   >
+</div><!--item-->
+
+<div class="login-item">
+   <h2>Nova senha</h2>
+      <input 
+         type="password" 
+         name="password" 
+         placeholder="Digite sua nova senha" 
+      >  
+</div>  
+
+<div class="login-item">
+   <h2>Repitir senha</h2>
+   <input 
+      type="password" 
+      name="passwordRepeat" 
+      placeholder="Repita a nova senha" 
+   >  
+</div>  
+
+<input type="hidden" name="token" value="{{token}}">
+

@@ -1,0 +1,19 @@
+{% if success %}
+<div class="messages-container success">
+  <p>{{success}}</p>
+</div>  
+{% endif %}
+
+{% if error %}
+<div class="messages-container error">
+  <p>{{error}}</p>
+</div>  
+{% endif %}
+
+{% if location %}
+  <script>
+    setTimeout(() => {
+      window.location = "{{location}}"
+    }, 3000)
+  </script> 
+{% endif %}

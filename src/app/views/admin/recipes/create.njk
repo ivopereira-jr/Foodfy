@@ -5,7 +5,7 @@
 {% endblock title %} 
 
 {% block head %}
-   <link rel="stylesheet" href="/css/admin-receitas.css">
+   <link rel="stylesheet" href="/styles/admin.css">
 {% endblock head %}
 
 {% block content %}
@@ -18,7 +18,7 @@
                   <button type="submit">Salvar receita</button>
                </div>
 
-               {% include 'admin/recipes/filds.njk' %}
+               {% include 'admin/recipes/fields.njk' %}
                
             </form>
          </div>
@@ -26,7 +26,3 @@
    </section>
 {% endblock content %}
 
-{% block script %}
-   <script src="/js/photos-upload.js"></script>
-   <script src="/js/create-recipe.js"></script>
-{% endblock script %}

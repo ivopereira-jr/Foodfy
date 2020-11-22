@@ -1,0 +1,49 @@
+{% extends "layout.njk" %}
+   
+{% block title %}
+   <title>Chef | {{chefInfo.name}}</title>
+{% endblock title %} 
+
+{% block head %}
+   <link rel="stylesheet" href="/styles/chefs.css">
+{% endblock head %}
+
+{% block content %}
+   <section class="chef">
+      <div class="container">
+         <div class="title-content title-destaque">
+            <h2>Chef: {{chefInfo.name}}</h2>
+         </div>
+         <div class="show-chef-card">
+            <div class="show-chef-img">  
+               <img src="{{chefImg}}" alt="imagem de {{chefInfo.name}}">
+            </div><!--card-img-->
+            <div class="show-chef-info">
+               <h2>{{chefInfo.name}}</h2>
+               <p>{{chefInfo.total_recipes}} receitas</p>
+            </div><!--card-info-->
+         </div><!--chef-card-->
+      </div><!--container-->
+   </section><!--chef-->
+   <section class="chef-receitas">
+      <div class="container">
+         <div class="title-content">
+            <h2>Receitas</h2>
+         </div>
+           <div class="receitas-cards">
+              {% for recipe in recipes %}
+                  <div class="admin-card">
+                     <div class="card-img">
+                        <img src="{{recipe.img}}" alt="imagem de {{recipe.title}}">
+                     </div><!--card-img-->
+                     <div class="card-info">
+                        <h2>{{recipe.title}}</h2>
+                        <p>por {{chefInfo.name}}</p>
+                        <a href="/receita/{{recipe.id}}">Visualizar</a>
+                     </div><!--card-info-->
+                  </div><!--card-->
+              {% endfor %}
+         </div><!--receitas-->
+      </div>
+   </section>
+{% endblock content %}

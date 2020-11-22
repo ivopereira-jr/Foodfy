@@ -1,0 +1,35 @@
+{% extends "admin-layout.njk" %}
+   
+{% block title %}
+   <title>Bem vindo(a) | {{user.name}}</title>
+{% endblock title %} 
+
+{% block head %}
+   <link rel="stylesheet" href="/styles/session.css">
+   <link rel="stylesheet" href="/styles/users.css">
+{% endblock head %}
+
+{% block content %}
+   <section class="edit-user users-content">
+      <div class="container user">      
+         <div class="forms-actions">
+            <form class="form-save" method="POST" action="/admin/profile?_method=PUT">
+               <div class="title-content">
+                  <h2>Bem vindo(a) {{user.name}}</h2>
+                  <button type="submit">Salvar</button>
+               </div>
+
+               <div class="fields">
+                  {% include 'admin/profile/fields.njk' %}
+               </div>
+                           
+               <input type="hidden" name="id" value="{{user.id}}">    
+            </form>             
+     
+         </div><!--forms-actions-->      
+      </div><!--container-->
+   </section>
+{% endblock content %}
+
+
+

@@ -1,0 +1,19 @@
+<div class="create-item">
+  <h2>Nome</h2>
+  <input type="text" name="name" value="{{chef.name}}" placeholder="Jorge Rabelo" required>
+</div><!--create-item-->
+<div class="create-item">
+  <h2>Avatar</h2>
+  {% if chefImg %}
+    <input type="text" id="chef-img" value="{{chefImg}}" disabled>
+  {% endif %}
+  <div class="avatar-upload">
+    <div class="avatar-wrapper">
+      <input type="file" name="photo" id="photos-input" multiple accept="image/*" onchange="chefUpload.fileUploadInput(event)">
+      <p>Enviar Avatar</p>
+    </div>
+    <div class="avatar-single">
+      <span class="material-icons">done</span>
+    </div>
+  </div>
+</div><!--create-item-->

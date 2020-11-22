@@ -1,0 +1,31 @@
+{% extends "admin-layout.njk" %}
+
+{% block head %}
+  <link rel="stylesheet" href="/styles/users.css">
+{% endblock head %}
+   
+{% block content %}
+  <section class="users">
+    <div class="container">
+        <div class="title-chefs title-destaque">
+        <h2>Usuários</h2>
+        <a class="button" href="/admin/users/create">Novo</a>
+      </div>
+
+      <div class="users-cards">
+          {% for user in users %}
+              <div class="user-card"">
+                <div class="user-info">
+                    <h2>{{user.name}}</h2>
+                    <p>{{user.email}}</p>
+                </div><!--card-info-->
+                <div class="user-info-actions">
+                    <a href="/admin/users/{{user.id}}/edit">Editar</a>
+                    <a href="#">Remover</a>{# nao entendi direito se era para remover da listagem ou deleter do bd #}
+                </div>
+              </div><!--user-card-->
+          {% endfor %}     
+        </div><!--users-->
+    </div><!--container-->
+  </section>
+{% endblock content %}

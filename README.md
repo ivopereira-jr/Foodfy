@@ -61,9 +61,17 @@ $ npm install
 $ yarn start
 $ npm start
 
+* Utilize o arquivo foodfybd.sql para criação das tabelas do banco de dados
+
 ```
 
 ---
+
+## ⚙ configurações
+
+configurar o arquivo db.js na pasta config de acordo com o seu gerenciador de banco de dados
+
+</br>
 
 ## 💬 Vamos trocar ideias
 
