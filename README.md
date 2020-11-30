@@ -61,8 +61,6 @@ $ npm install
 $ yarn start
 $ npm start
 
-* Utilize o arquivo foodfybd.sql para criação das tabelas do banco de dados
-
 ```
 
 ---
@@ -70,6 +68,10 @@ $ npm start
 ## ⚙ configurações
 
 configurar o arquivo db.js na pasta config de acordo com o seu gerenciador de banco de dados
+configurar o arquivo mailer.js na pasta lib para o envio de emails para senhas e recuperação de senhas eu utilizei o mailtrap para receber esses emails
+
+* Utilize o arquivo foodfydb.sql para criação do banco de dados
+
 
 </br>
 
