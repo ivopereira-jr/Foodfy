@@ -38,11 +38,11 @@ Upload de imagens
 
 ## 🚀 Tecnologias utilizadas:
 
-- Css
-- Html
-- Javascript
-- Node.js
-- PostgreSql
+- CSS
+- HTML
+- JavaScript
+- Node.Js
+- PostgreSQL
 
 </br>
 
