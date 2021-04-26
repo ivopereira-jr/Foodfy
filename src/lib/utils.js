@@ -1,5 +1,5 @@
 module.exports = {
-  date: function(timestamp) {
+  date: function (timestamp) {
     const date = new Date(timestamp)
 
     //ano
@@ -13,14 +13,28 @@ module.exports = {
     //o utc serve para pegar uma data universal sEM ele e pegada uma data local ou seja d onde vc esta e isso pode gerar alguns bugs
 
     return {
-        day,
-        month,
-        year,
-        iso: `${year}-${month}-${day}`,
-        birthDay: `${day}/${month}`,
-        format: `${day}/${month}/${year}`
+      day,
+      month,
+      year,
+      iso: `${year}-${month}-${day}`,
+      format: `${day}/${month}/${year}`
     }
-         
-  }
-  
+
+  },
+  getParams(query, limit) {
+    let { search, page } = query;
+
+    page = page || 1;
+    let offset = limit * (page - 1);
+
+    const params = {
+      search,
+      limit,
+      offset,
+      page
+    };
+
+    return params;
+  },
+
 }

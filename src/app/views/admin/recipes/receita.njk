@@ -18,14 +18,14 @@
          <div class="receita-card">
             <div class="receita-files">
                <div class="receita-img">  
-                  {% if not files[0] %}
+                  {% if not recipe.files[0] %}
                    <img src="http://placehold.it/500x500" alt="Sem foto">
                   {% else %}
-                  <img src="{{files[0].src}}" alt="imagem de {{files[0].name}}">
+                  <img src="{{recipe.files[0].src}}" alt="imagem de {{recipe.files[0].name}}">
                   {% endif %}
                </div><!--card-img-->
                <div class="gallery-preview">
-                  {% for image in files %}
+                  {% for image in recipe.files %}
                      <img src="{{image.src}}" alt="{{image.name}}" 
                      {% if loop.index0 == 0 %}
                         class="active"

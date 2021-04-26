@@ -9,28 +9,28 @@
 {% endblock head %}
 
 {% block content %}
-   <section class="create-recipe">
-      <div class="container">      
-         <div class="forms-actions">
-            <form class="form-save" method="POST" action="/admin/recipes?_method=PUT" enctype="multipart/form-data">
-               <div class="title-content">
-                  <h2>Editar receita</h2>
-                  <button type="submit">Salvar receita</button>
-               </div>
+  <section class="create-recipe">
+    <div class="container">      
+        <div class="forms-actions">
+          <form class="form-save" method="POST" action="/admin/recipes?_method=PUT" enctype="multipart/form-data">
+              <div class="title-content">
+                <h2>Editar receita</h2>
+                <button type="submit">Salvar receita</button>
+              </div>
 
-               {% include 'admin/recipes/fields.njk' %}
-                           
-               <input type="hidden" name="id" value="{{recipe.id}}">    
-            </form>             
-   
-            <form id="form-delete" method="POST" action="/admin/recipes?_method=DELETE">
-               <input type="hidden" name="id" value="{{recipe.id}}">
+              {% include 'admin/recipes/fields.njk' %}
+                          
+              <input type="hidden" name="id" value="{{recipe.id}}">    
+          </form>             
+  
+          <form id="form-delete" method="POST" action="/admin/recipes?_method=DELETE">
+              <input type="hidden" name="id" value="{{recipe.id}}">
 
-               <button class="delete" type="submit">Deletar</button>
-            </form>  
-         </div><!--forms-actions-->      
-      </div><!--container-->
-   </section>
+              <button class="delete" type="submit">Deletar</button>
+          </form>  
+        </div><!--forms-actions-->      
+    </div><!--container-->
+  </section>
 {% endblock content %}
 
 

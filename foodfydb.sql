@@ -1,6 +1,10 @@
-/* caso for necessario */
-/* DROP SCHEMA public CASCADE;
-CREATE SCHEMA public; */
+/* 
+caso for necessario 
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public; 
+*/
+
+CREATE DATABASE foodfy;
 
 /* tables */
 CREATE TABLE "recipes" (
@@ -15,13 +19,6 @@ CREATE TABLE "recipes" (
 );
 /* Obs.: Você consegue armazenar vetores (arrays) no Postgres utilizando o [] no fim do campo. */
 
-CREATE TABLE "chefs" (
-  "id" SERIAL PRIMARY KEY,
-  "name" TEXT,
-  "created_at" TIMESTAMP DEFAULT (now()),
-  "file_id" INT REFERENCES files(id)
-);
-
 CREATE TABLE "files" (
   "id" SERIAL PRIMARY KEY,
   "name" TEXT,
@@ -31,6 +28,13 @@ CREATE TABLE "files" (
 CREATE TABLE "recipe_files" (
   "id" SERIAL PRIMARY KEY,
   "recipe_id" INT REFERENCES recipes(id),
+  "file_id" INT REFERENCES files(id)
+);
+
+CREATE TABLE "chefs" (
+  "id" SERIAL PRIMARY KEY,
+  "name" TEXT,
+  "created_at" TIMESTAMP DEFAULT (now()),
   "file_id" INT REFERENCES files(id)
 );
 

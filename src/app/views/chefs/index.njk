@@ -1,0 +1,29 @@
+{% extends "layout.njk" %}
+
+{% block title %}
+  <title>Chefs</title>
+{% endblock title %}
+
+{% block head %}
+  <link rel="stylesheet" href="/styles/chefs.css">
+{% endblock head %}
+
+{% block content %}
+  <section class="chefs">
+    <div class="container">
+      <div class="chef-cards">
+        {% for chef in chefs %}
+          <div class="chef-card">
+            <div class="chef-image">
+              <img src="{{chef.file.src}}" alt="imagem de {{chef.name}}">
+            </div>
+            <div class="chef-info">
+              <h2>{{chef.name}}</h2>
+              <a href="/chefs/{{chef.id}}">Visualizar</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock content %}

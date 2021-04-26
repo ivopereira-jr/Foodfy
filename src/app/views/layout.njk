@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      {% block title %}
-         <title>Foodfy</title>
-      {% endblock title %}
-      <link rel="icon" type="image/png" sizes="36x36" href="/assets/icon-36x36.png">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-      <link rel="stylesheet" href="/styles/style.css">
-      {% block head %}
-      {% endblock head %}
-   </head>
-   <body>
-      <header>
-         <div class="container">
-            <div class="logo">
-               <a href="/inicio">
-                  <img class="logo-black" src="/assets/logo.png" alt="Logomarca">
-                  <img class="logo-white" src="/assets/logo-white.png" alt="Logomarca">
-               </a>
-            </div><!--logo-->
-            <div class="links">
-               <a href="/inicio">Inicio</a>
-               <a href="/sobre">Sobre</a>
-               <a href="/receitas">Receitas</a>
-               <a href="/chefs">Chefs</a>
-            </div><!--links-->
-            {% block header %}
-            {% endblock header %}
-         </div><!--container-->
-      </header>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>Foodfy</title>
+    {% endblock title %}
+    <link rel="icon" type="image/png" sizes="36x36" href="/assets/icon-36x36.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+    {% block head %}
+    {% endblock head %}
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+            <a href="/inicio">
+              <img class="logo-black" src="/assets/logo.png" alt="Logomarca">
+              <img class="logo-white" src="/assets/logo-white.png" alt="Logomarca">
+            </a>
+        </div><!--logo-->
+        <div class="links">
+            <a href="/inicio">Inicio</a>
+            <a href="/sobre">Sobre</a>
+            <a href="/receitas">Receitas</a>
+            <a href="/chefs">Chefs</a>
+        </div><!--links-->
+        {% block header %}
+        {% endblock header %}
+      </div><!--container-->
+    </header>
 
-      {% block content %}
-      {% endblock content %}
+    {% block content %}
+    {% endblock content %}
 
-      <div class="topbtn">
-         <span class="material-icons">arrow_upward</span>
-      </div>
+    <div class="topbtn">
+        <span><i class="fas fa-arrow-up"></i></span>
+    </div>
 
-      <footer>
-         <p>Todos direitos reservados, receitas Foodfy.</p>
-      </footer>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="/js/script.js"></script>
-      {% block script %}
-      {% endblock script %}
-   </body>
+    <footer>
+        <p>Todos direitos reservados, receitas Foodfy.</p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
+    <script src="/js/script.js"></script>
+    {% block script %}
+    {% endblock script %}
+  </body>
 </html>

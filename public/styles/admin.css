@@ -148,7 +148,7 @@ header .login-logout form button {
 }
 
 .messages-container::before {
-  content: "";
+  content: '';
   width: 100%;
   height: 4px;
   border-radius: 2px;

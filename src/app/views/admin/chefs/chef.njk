@@ -1,7 +1,7 @@
 {% extends "admin-layout.njk" %}
    
 {% block title %}
-   <title>Chef | {{chefInfo.name}}</title>
+   <title>Chef | {{chef.name}}</title>
 {% endblock title %} 
 
 {% block head %}
@@ -13,16 +13,16 @@
    <section class="chef">
       <div class="container">
          <div class="title-content title-destaque">
-            <h2>Chef: {{chefInfo.name}}</h2>
-            <a class="button" href="/admin/chefs/{{chefInfo.id}}/edit">Editar chef</a>
+            <h2>Chef: {{chef.name}}</h2>
+            <a class="button" href="/admin/chefs/{{chef.id}}/edit">Editar chef</a>
          </div>
          <div class="show-chef-card">
             <div class="show-chef-img">  
-               <img src="{{chefImg}}" alt="imagem de {{chefInfo.name}}">
+               <img src="{{chef.file.src}}" alt="imagem de {{chef.name}}">
             </div><!--card-img-->
             <div class="show-chef-info">
-               <h2>{{chefInfo.name}}</h2>
-               <p>{{chefInfo.total_recipes}} receitas</p>
+               <h2>{{chef.name}}</h2>
+               <p>{{chef.total_recipes}} receitas</p>
             </div><!--card-info-->
          </div><!--chef-card-->
       </div><!--container-->
@@ -40,7 +40,7 @@
                      </div><!--card-img-->
                      <div class="card-info">
                         <h2>{{recipe.title}}</h2>
-                        <p>por {{chefInfo.name}}</p>
+                        <p>por {{chef.name}}</p>
                         <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
                      </div><!--card-info-->
                   </div><!--card-->

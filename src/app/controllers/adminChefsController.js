@@ -1,54 +1,39 @@
-const Chef = require("../models/chef")
-const File = require("../models/file")
-const RecipeFiles = require("../models/recipeFiles")
+const Chef = require('../models/chef')
+const File = require('../models/file')
+
+const LoadRecipeService = require('../services/LoadRecipeService')
+const LoadChefService = require('../services/LoadChefService')
 
 module.exports = {
   async index(req, res) {
-    let results = await Chef.all()
-    const chefs = results.rows
+    try {
+      const chefs = await LoadChefService.load('chefs')
 
-    async function getImage(chefId) {
-      let results = await File.chefFile(chefId)
-      const files = results.rows.map(
-        file =>
-          `${req.protocol}://${req.headers.host}${file.path.replace(
-            "public",
-            ""
-          )}`
-      )
-
-      return files[0]
+      return res.render('admin/chefs/index', { chefs })
+    } catch (err) {
+      console.error(err)
     }
-
-    const chefsPromises = chefs.map(async chef => {
-      chef.img = await getImage(chef.id)
-      return chef
-    })
-
-    const allFiles = await Promise.all(chefsPromises)
-
-    return res.render("admin/chefs/index", { chefs, chef: allFiles })
   },
   create(req, res) {
-    return res.render("admin/chefs/create")
+    return res.render('admin/chefs/create')
   },
   async post(req, res) {
     try {
       const keys = Object.keys(req.body)
 
-      for (key of keys) {
-        if (req.body[key] == "") {
-          return res.render("admin/chefs/create", {
+      for (let key of keys) {
+        if (req.body[key] == '') {
+          return res.render('admin/chefs/create', {
             chef: req.body,
-            error: "Por favor Preencha todos os campos.",
+            error: 'Por favor Preencha todos os campos.',
           })
         }
       }
 
       if (req.files.length == 0) {
-        return res.render("admin/chefs/create", {
+        return res.render('admin/chefs/create', {
           chef: req.body,
-          error: "Por favor envie pelo menos uma imagem.",
+          error: 'Por favor envie pelo menos uma imagem.',
         })
       }
 
@@ -59,87 +44,58 @@ module.exports = {
 
       await Chef.create(req.body, fileId[0])
 
-      return res.render("admin/chefs/create", {
-        success: "Chef cadastrado com secesso!",
-        location: "/admin/chefs",
+      return res.render('admin/chefs/create', {
+        success: 'Chef cadastrado com secesso!',
+        location: '/admin/chefs',
       })
     } catch (err) {
       console.log(err)
-      return res.render("admin/chefs/create", {
+      return res.render('admin/chefs/create', {
         chef: req.body,
-        error: "Alguma coisa deu errado! Tente novamente.",
+        error: 'Alguma coisa deu errado! Tente novamente.',
       })
     }
   },
-  async show(req, res) {
-    let results = await Chef.find(req.params.id)
-    const chefInfo = results.rows[0]
+  async chefDetail(req, res) {
+    try {
+      const chef = await LoadChefService.load('chef', req.params.id)
+      const recipes = await LoadRecipeService.load('chefRecipes', chef.id)
 
-    if (!chefInfo) return res.render("recipes/404")
+      return res.render('admin/chefs/chef', {
+        chef,
+        recipes,
+      })
 
-    results = await File.chefFile(chefInfo.id)
-    const chefImg = results.rows.map(
-      file =>
-        `${req.protocol}://${req.headers.host}${file.path.replace(
-          "public",
-          ""
-        )}`
-    )
-
-    const recipes = await Chef.findBy(chefInfo.id)
-
-    async function getImage(recipeId) {
-      let results = await RecipeFiles.files(recipeId)
-      const files = results.rows.map(
-        file =>
-          `${req.protocol}://${req.headers.host}${file.path.replace(
-            "public",
-            ""
-          )}`
-      )
-
-      return files[0]
+    } catch (err) {
+      console.error(err)
     }
-
-    const recipesPromises = recipes.rows.map(async recipe => {
-      recipe.img = await getImage(recipe.id)
-      return recipe
-    })
-
-    const allFiles = await Promise.all(recipesPromises)
-
-    return res.render("admin/chefs/chef", {
-      chefImg,
-      chefInfo,
-      recipes: allFiles,
-    })
   },
   async edit(req, res) {
     let results = await Chef.find(req.params.id)
     const chef = results.rows[0]
 
-    if (!chef) return res.render("recipes/404")
+    if (!chef) return res.render('recipes/404')
 
     let file = await File.chefFile(chef.id)
     const chefImg = file.rows.map(
       file =>
         `${req.protocol}://${req.headers.host}${file.path.replace(
-          "public",
-          ""
+          'public',
+          ''
         )}`
     )
 
-    return res.render("admin/chefs/edit", { chef, chefImg })
+    return res.render('admin/chefs/edit', { chef, chefImg })
   },
   async put(req, res) {
     try {
       const keys = Object.keys(req.body)
 
-      for (key of keys) {
-        if (req.body[key] == "") {
-          return res.render("admin/chefs/edit", {
+      for (let key of keys) {
+        if (req.body[key] == '') {
+          return res.render('admin/chefs/edit', {
             chef: req.body,
-            error: "Por favor Preencha todos os campos.",
+            error: 'Por favor Preencha todos os campos.',
           })
         }
       }
@@ -163,15 +119,15 @@ module.exports = {
         File.deleteFileChef(fileIdDelete)
       }
 
-      return res.render("admin/chefs/edit", {
-        success: "Chef Atualizado com secesso!",
-        location: "/admin/chefs",
+      return res.render('admin/chefs/edit', {
+        success: 'Chef Atualizado com secesso!',
+        location: '/admin/chefs',
       })
     } catch (err) {
       console.log(err)
-      return res.render("admin/chefs/edit", {
+      return res.render('admin/chefs/edit', {
         chef: req.body,
-        error: "Alguma coisa deu errado! Tente novamente.",
+        error: 'Alguma coisa deu errado! Tente novamente.',
       })
     }
   },
@@ -180,11 +136,11 @@ module.exports = {
     const chef = result.rows[0]
 
     if (chef.total_recipes >= 1) {
-      return res.render("admin/chefs/404", { chef })
+      return res.render('admin/chefs/404', { chef })
     } else {
       await Chef.delete(req.body.id)
 
-      return res.redirect("/admin/chefs")
+      return res.redirect('/admin/chefs')
     }
   },
 }

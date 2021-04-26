@@ -1,23 +1,23 @@
-const express = require("express")
+const express = require('express')
 const routes = express.Router()
 
-const recipes = require("../app/controllers/recipesController")
-const login = require("./login")
-const admin = require("./admin")
+const Foodfy = require('../app/controllers/foodfyController')
+const Login = require('./login')
+const Admin = require('./admin')
 
-routes.use("/login", login)
-routes.use("/admin", admin)
+routes.use('/login', Login)
+routes.use('/admin', Admin)
 
-// recipes
-routes.get("/", function (req, res) {
-  return res.redirect("/inicio")
-})
-routes.get("/inicio", recipes.index)
-routes.get("/sobre", recipes.sobre)
-routes.get("/receitas", recipes.receitas)
-routes.get("/receita/:id", recipes.receita)
-routes.get("/chefs", recipes.chefs)
-routes.get("/chefs/:id", recipes.chefDetail)
-routes.get("/receitas/resultado", recipes.results)
+// foodfy
+routes
+  .get('/', function (req, res) {
+    return res.redirect('/inicio')
+  })
+  .get('/inicio', Foodfy.index)
+  .get('/sobre', Foodfy.sobre)
+  .get('/receitas', Foodfy.receitas)
+  .get('/receita/:id', Foodfy.receita)
+  .get('/chefs', Foodfy.chefs)
+  .get('/chefs/:id', Foodfy.chefDetail)
 
 module.exports = routes

@@ -1,24 +1,23 @@
 {% extends "layout.njk" %}
 
-{% block title %}
-  <title>Receitas</title>
-{% endblock title %}
-
 {% block head %}
   <link rel="stylesheet" href="/styles/receitas.css">
 {% endblock head %}
 
 {% block header %}
   <form class="search" action="/receitas" method="GET">
-    <input type="text" name="search" value="{{search}}" placeholder="Buscar uma receita">
+    <input type="text" name="filter" value="{{filter}}" placeholder="Buscar uma receita">
     <button type="submit">Buscar</button>
   </form>
 {% endblock header %}
 
 {% block content %}
-  <section class="receitas">
+  <section class="resultado-receitas">
     <div class="container">
-      <div class="receitas-cards">
+      <div class="resultado-title-content">
+        <h2>Buscando por "{{search}}"</h2>
+      </div>
+      <div class="resultado-cards-receitas">
         {% for recipe in recipes %}
           <div class="card" id="{{recipe.id}}">
             <div class="card-img">
@@ -38,16 +37,15 @@
       <!--cards-receitas-->
       <div 
         class="pagination" 
-        data-page={{pagination.page}} 
+        data-page={{pagination.page}}
         data-total={{pagination.total}}
+        data-filter={{search}}
       >
       </div>
     </div>
-    <!--container-->
   </section>
-  <!--receitas-->
 {% endblock content %}
 
 {% block script %}
-  <script src="/js/pagination.js"></script>
+  <script src=" /js/pagination.js"></script>
 {% endblock script %}
