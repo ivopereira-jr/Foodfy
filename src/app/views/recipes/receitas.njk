@@ -1,0 +1,44 @@
+{% extends "layout.njk" %}
+   
+{% block title %}
+   <title>Receitas</title>
+{% endblock title %}   
+
+{% block head %}
+   <link rel="stylesheet" href="/styles/receitas.css">
+{% endblock head %}
+         
+{% block header %}
+<form class="search" action="/receitas/resultado" method="GET">
+   <input type="text" name="filter" value="{{filter}}" placeholder="Buscar uma receita">
+   <button type="submit">Buscar</button>
+</form>
+{% endblock header %} 
+      
+{% block content %}
+   <section class="receitas">
+      <div class="container">
+         <div class="receitas-cards">
+            {% for recipe in recipes %}
+               <div class="card" id="{{recipe.id}}" >
+                  <div class="card-img">  
+                     <img src="{{recipe.img}}" alt="imagem de {{recipe.title}}">
+                  </div><!--card-img-->
+                  <div class="card-info">
+                     <h2>{{recipe.title}}</h2>
+                     <p>por {{recipe.chef_name}}</p>
+                  </div><!--card-info-->
+               </div><!--card-->
+            {% endfor %}
+         </div><!--cards-receitas-->
+         <div class="pagination"
+            data-page={{pagination.page}}
+            data-total={{pagination.total}}
+         ></div>
+      </div><!--container-->
+   </section><!--receitas-->
+{% endblock content %}      
+
+{% block script %}
+   <script src="/js/pagination.js"></script>
+{% endblock script %}

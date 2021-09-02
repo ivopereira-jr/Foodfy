@@ -1,70 +1,65 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      {% block title %}
-         <title>Foodfy</title>
-      {% endblock title %}
-      <link rel="icon" type="image/png" sizes="36x36" href="/assets/icon-36x36.png">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-      <link rel="stylesheet" href="/styles/style.css">
-      <link rel="stylesheet" href="/styles/admin.css">
-      {% block head %}
-      {% endblock head %}
-   </head>
-   <body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+      <title>Foodfy</title>
+    {% endblock title %}
+    <link rel="icon" type="image/png" sizes="36x36" href="/assets/icon-36x36.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/admin.css"> {% block head %}{% endblock head %}
+    </head>
+    <body>
       <header>
-         <div class="container">
-            <div class="logo">
-               <a href="/admin/recipes">
-                  <img src="/assets/logo-white.png" alt="Logomarca">
-               </a>
-            </div><!--logo-->
-            <div class="links">           
-               <a href="/admin/recipes">Receitas</a>
-               <a href="/admin/chefs">Chefs</a>
-               <a href="/admin/users">Usuários</a>
-            </div><!--links-->
-            <nav class="login-logout">
-               <ul>
-                  <li class="accounts">
-                     <span class="material-icons">account_circle</span>
-                     {% if session.userId %}
-                        <ul class="submenu">
-                           <li>
-                              <a href="/admin/profile">Minha conta</a>
-                           </li>
-                           <li>
-                              <form action="/login/logout" method="POST">
-                                 <button>Sair</button>
-                              </form>
-                           </li>
-                        </ul>
-                     {% endif %}
-                  </li>
-               </ul>
-            </nav>
-         </div><!--container-->
+        <div class="container">
+          <div class="logo">
+            <a href="/admin/recipes">
+              <img src="/assets/logo-white.png" alt="Logomarca">
+            </a>
+          </div>
+          <!--logo-->
+          <div class="links">
+            <a href="/admin/recipes">Receitas</a>
+            <a href="/admin/chefs">Chefs</a>
+            <a href="/admin/users">Usuários</a>
+          </div>
+          <!--links-->
+          <nav class="login-logout">
+            <ul>
+              <li class="accounts">
+                <span class="material-icons">account_circle</span>
+                {% if session.userId %}
+                  <ul class="submenu">
+                    <li>
+                      <a href="/admin/profile">Minha conta</a>
+                    </li>
+                    <li>
+                      <form action="/login/logout" method="POST">
+                        <button>Sair</button>
+                      </form>
+                    </li>
+                  </ul>
+                {% endif %}
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!--container-->
       </header>
-
       {% include "admin/messages.njk" %}
-
-      {% block content %}
-      {% endblock content %}
-
+      {% block content %}{% endblock content %}
       <div class="topbtn">
-         <span class="material-icons">arrow_upward</span>
+        <span class="material-icons">arrow_upward</span>
       </div>
-
       <footer>
-         <p>Todos direitos reservados, receitas Foodfy.</p>
+        <p>Todos direitos reservados, receitas Foodfy.</p>
       </footer>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="/js/photos-upload.js"></script>
       <script src="/js/create-recipe.js"></script>
       <script src="/js/validator.js"></script>
       <script src="/js/script.js"></script>
-   </body>
-</html>
+    </body>
+  </html>
